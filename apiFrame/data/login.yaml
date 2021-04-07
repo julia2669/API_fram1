@@ -1,0 +1,43 @@
+##用户登录成功
+url: http://127.0.0.1:5000/login
+method: post
+data:
+  username: 无涯
+  password: admin
+  age: 18
+  sex: 男
+expect: 无涯
+---
+url: http://127.0.0.1:5000/login
+method: post
+data:
+  password: admin
+  age: 18
+  sex: 男
+expect: 用户名不能为空
+---
+url: http://127.0.0.1:5000/login
+method: post
+data:
+  username: admin
+  age: 18
+  sex: 男
+expect: 账户密码不能为空
+---
+url: http://127.0.0.1:5000/login
+method: post
+data:
+  username: admin
+  password: admin
+  age: asd
+  sex: 男
+expect: 年龄必须为正正数
+---
+url: http://127.0.0.1:5000/login
+method: post
+data:
+  username: admin
+  password: admin
+  age: 18
+  sex: as
+expect: 性别只能是男或者⼥
